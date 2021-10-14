@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>three.js app</title>
+    <style>
+      body { margin: 0; }
+
+      .scene {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-image: url(assets/img/image.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100vh;
+      }
+      .main {
+      }
+    </style>
+  </head>
+  <body>
+    <div class="scene">
+      <div class="main">
+        <button onclick="EnterBtn()">Entrer</button>
+      </div>
+    </div>
+    <script>
+
+      function EnterBtn() {
+        let date = new Date();
+        console.log(date.getHours());
+        if (date.getHours()<18) {
+          alert("Il est encore trop tôt !");
+        }
+        else {
+          if (date.getHours()>18) {
+            alert("Il est déjà trop tard !")
+          }
+          else {
+            document.location.href="pages/lobby.html"; 
+          }
+        }
+    }
+    </script>
+  </body>
+</html>
+
+
