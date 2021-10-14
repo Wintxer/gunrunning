@@ -1,0 +1,16 @@
+@font-face {
+    font-family: 'GothamBold';
+    src: url('../fonts/GothamBold.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'GothamBlack';
+    src: url('../fonts/Gotham-Black.woff') format('woff');
+  }
+  @font-face {
+    font-family: 'Righteous';
+    src: url('../fonts/Righteous-Regular.woff') format('woff');
+  }
+  body { 
+    margin: 0; 
+    font-family: Righteous, Arial, Helvetica, sans-serif;
+  }

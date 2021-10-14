@@ -11,7 +11,7 @@ const camera = new THREE.PerspectiveCamera(50, aspect, 1, 5000);
 camera.position.set(0, 0, 8); */
 const aspect = window.innerWidth / window.innerHeight;
 const camera = new THREE.PerspectiveCamera(100, aspect, 1, 5000);
-camera.position.set(4, 4, 4);
+camera.position.set(30, 30, 30);
 // ...
 
 // renderer
@@ -25,7 +25,7 @@ document.querySelector(".main").appendChild(renderer.domElement);
 // Controls
 const controls = new OrbitControls(camera, renderer.domElement);
 controls.autoRotate = true;
-controls.enableZoom = false;
+//controls.enableZoom = false;
 controls.enablePan = true;
 
 // Light
@@ -86,7 +86,7 @@ let mesh = []
 // load a resource
 loader.load(
   // resource URL
-  '../assets/models/fbx/gunRealTexture.fbx',
+  '../assets/models/fbx/casierTexture.fbx',
   // called when resource is loaded
   function (object) {
     console.log(object);
