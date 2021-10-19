@@ -6,9 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gunrunning</title>
     <link rel="stylesheet" href="../assets/styles/main.css">
+    <style>
+        body {
+            background-image: url(../assets/img/noGunNokey.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+        }
+        div {
+
+            position: absolute;
+            left: 50vw;
+            transform: translateX(-50%);
+            top: 8%;    
+        }
+    </style>
 </head>
 <body>
-    Vous avez perdu
-    
+    <div>
+        <iframe width="380" height="715" src="https://www.youtube.com/embed/Hd0eIVMM4dg?autoplay=1" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
+    <script>
+        setTimeout(() => {
+            alert("Vous avez pris trop de temps !\n Vous vous êtes fait repéré et êtes devenu une honte parmis les détectives.")
+        }, 1500)
+    </script>
 </body>
 </html>

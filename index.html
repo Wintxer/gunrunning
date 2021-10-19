@@ -11,39 +11,115 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        background-image: url(assets/img/image.png);
+        background-image: url(assets/img/Tableau_HubV2.jpg);
         background-repeat: no-repeat;
         background-size: cover;
+        background-position: center;
         width: 100%;
         height: 100vh;
         color: white;
+      }
+      .notes {
+        display: none;
+        width: 70vw;
+        justify-content: center;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.678);
+      }
+      .notes-call {
+        height: 52vh;
+        width: 200px;
+        position: absolute;
+        right: 25%;
+        top: 19%;
+        cursor: pointer;
+      }
+      .open {
+        display: flex !important;
+      }
+      .btn-close {
+        position: absolute;
+        top: 18%;
+        left: 20%;
+        cursor: pointer;
+      }
+      .btn-enter {
+        cursor: pointer;
+        position: absolute;
+        width: 400px;
+        height: 250px;
+        left: 37%;
+        bottom: 25%;
+      }
+      .close {
+        display: none !important;
+      }
+      .audio {
+        width: 150px;
+        position: absolute;
+        right: 2%;
+        top: 2%;
+        cursor: pointer;
+      }
+      .audio img {
+        width: 100%;
       }
     </style>
   </head>
   <body>
     <div class="scene">
-      SALUTATIONS
-      <div class="main">
-        <button onclick="EnterBtn()">Entrer</button>
+      <div class="btn-enter" onclick="EnterBtn()"></div>
+      <div class="notes">
+        <div class="btn-close" onclick="Notes()">
+          <img src="assets/img/close.png" alt="">
+        </div>
+        <img src="assets/img/notes.png" alt="">
       </div>
+      <div class="notes-call" onclick="Notes()"></div>
+      <div class="audio" onclick="Audio()">
+        <img src="assets/img/icon_volume_neon.png" alt="">
+        <audio preload class="audio-mp3">
+          <source src="assets/sounds/Final_VoiceOff_Synopsis.wav" type="audio/wav">
+        </audio>
+      </div>
+      <audio loop class="ambientsound">
+        <source src="assets/sounds/neonSoundToLoop.mp3" type="audio/mpeg">
+      </audio>
     </div>
     <script>
-      function EnterBtn() {
+      let EnterBtn = () => {
         let date = new Date();
         console.log(date.getHours());
-        if (date.getHours()<18) {
-          alert("Il est encore trop tôt !");
+        console.log(date.getMinutes());
+        if (date.getHours()<2 && date.getMinutes()<30 || date.getHours()>=12) {
+          alert("Il est encore trop tôt !\n\n Heure actuelle : "+date.getHours()+"h"+date.getMinutes());
         }
         else {
-          if (date.getHours()>18) {
-            alert("Il est déjà trop tard !")
+          if ((date.getHours()>=3 && date.getHours()<12)) {
+            alert("Il est déjà trop tard !\n\nHeure actuelle : "+date.getHours()+"h"+date.getMinutes());
           }
           else {
             document.location.href="pages/lobby.html"; 
           }
         }
       }
-      
+      let Notes = () => {
+        document.querySelector(".notes").classList.toggle("open");
+        document.querySelector(".btn-enter").classList.toggle("close");
+      }
+
+      let Audio = () => {
+        myAudio = document.querySelector(".audio-mp3");
+        return myAudio.paused ? myAudio.play() : myAudio.pause();
+      }
+
+      let AmbientSound = document.querySelector(".ambientsound");
+      AmbientSound.volume = .3;
+      AmbientSound.addEventListener("canplay", function() {
+        setTimeout(function() {
+          AmbientSound.play();
+        }, 2000);
+      });
     </script>
   </body>
 </html>
